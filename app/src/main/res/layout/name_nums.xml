@@ -10,6 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="15"
-        android:text="Fill in their names with their numbers"
+        android:text="Fill in the names with their numbers"
         android:textColor="@color/colorAccent"/>
 </ScrollView>
