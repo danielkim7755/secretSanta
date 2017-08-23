@@ -27,6 +27,7 @@
         android:layout_marginBottom="99dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:onClick="OkBtnOnClick"/>
+
     <EditText
         android:id="@+id/GNameInput"
         android:layout_width="wrap_content"
