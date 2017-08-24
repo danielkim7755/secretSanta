@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
        <activity android:name=".name_nums" android:parentActivityName=".MainActivity"> </activity>
+        <activity android:name=".SetDate" android:parentActivityName=".name_nums"></activity>
     </application>
 
 </manifest>
