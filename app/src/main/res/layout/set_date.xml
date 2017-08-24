@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Select Gift Due Date"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="32sp"
+            android:gravity="center"
+            android:focusable="false"
+            android:background="@android:color/transparent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:headerBackground="@android:color/holo_green_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/editText3"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/startButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="411dp"
+            android:background="@android:color/holo_red_light"
+            android:onClick="startBtnOnClick"
+            android:text="Start"
+            android:layout_alignTop="@+id/datePicker"
+            android:layout_alignEnd="@+id/datePicker" />
+
+    </RelativeLayout>
+</ScrollView>

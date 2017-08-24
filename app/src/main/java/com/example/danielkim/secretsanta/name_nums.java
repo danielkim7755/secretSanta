@@ -87,6 +87,14 @@ public class name_nums extends AppCompatActivity{
             numbers.add(numText);
         }
 
+        // Add Spacing Between Text and button
+        EditText spaceText = new EditText(this);
+        spaceText.setText("", TextView.BufferType.NORMAL);
+        spaceText.setFocusable(false);
+        spaceText.setClickable(false);
+        spaceText.setBackgroundColor(Color.TRANSPARENT);
+        mainLayout.addView(spaceText);
+
         // Start Button Setup
         Button nextButton = new Button(this);
         nextButton.setBackgroundColor(Color.GREEN);
@@ -102,28 +110,26 @@ public class name_nums extends AppCompatActivity{
 
         // Next Button OnClick Setup
         nextButton.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View v)  {
-                        Intent intent = new Intent(name_nums.this, SetDate.class);
-                        ArrayList<String> namesList = new ArrayList<String>();
-                        ArrayList<Integer> numsList = new ArrayList<Integer>();
+            new View.OnClickListener() {
+                public void onClick(View v)  {
+                    Intent intent = new Intent(name_nums.this, SetDate.class);
+                    ArrayList<String> namesList = new ArrayList<String>();
+                    ArrayList<Integer> numsList = new ArrayList<Integer>();
 
-                        // Put all input into a list
-                        for (int j = 0; j < totalNum; j++) {
-                            namesList.add(names.get(j).getText().toString());
-                            numsList.add(Integer.getInteger(numbers.get(j).getText().toString()));
-                        }
-
-                        // Pass data to next Activity
-                        intent.putStringArrayListExtra("NameList", namesList);
-                        intent.putIntegerArrayListExtra("NumberList",numsList);
-                        intent.putExtra("GName",GName);
-
-                        startActivity(intent);
+                    // Put all input into a list
+                    for (int j = 0; j < totalNum; j++) {
+                        namesList.add(names.get(j).getText().toString());
+                        numsList.add(Integer.getInteger(numbers.get(j).getText().toString()));
                     }
+
+                    // Pass data to next Activity
+                    intent.putStringArrayListExtra("NameList", namesList);
+                    intent.putIntegerArrayListExtra("NumberList",numsList);
+                    intent.putExtra("GName",GName);
+
+                    startActivity(intent);
                 }
+            }
         );
-
-
     }
 }
