@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
@@ -74,19 +77,24 @@ public class name_nums extends AppCompatActivity{
             numText.setId(j);
             numText.setHint(numHint);
             numText.setEms(7);
+            numText.setInputType(InputType.TYPE_CLASS_NUMBER);
             editTextLayout.addView(numText);
         }
 
-        // Start Button
+        // Start Button Setup
         Button startButton = new Button(this);
-        
+        startButton.setBackgroundColor(Color.GREEN);
+        startButton.setText("Start");
+        startButton.setTextSize(TypedValue.COMPLEX_UNIT_SP,30);
+        startButton.setTextColor(Color.WHITE);
 
+        // Add Button to Main Layout
+        mainLayout.addView(startButton);
 
         setContentView(scroll);
+
+
+        View.OnClickListener startButtonClick()
+
     }
-
-
-
-
-
 }
