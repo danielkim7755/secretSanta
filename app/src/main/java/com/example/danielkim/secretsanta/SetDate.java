@@ -66,7 +66,7 @@ public class SetDate extends AppCompatActivity {
         results = resList.get(rand.nextInt(resList.size()));
 
 
-        // TODO Send Out Text Messages
+        // Send Out Text Messages
         String message = "Welcome to " + groupName + " Secret Santa \n" +
                          "Gifts are due at " + dueDate + " !!!\n\n\n" +
                          "You are the Secret Santa of ";

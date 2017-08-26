@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,6 +119,17 @@ public class name_nums extends AppCompatActivity{
 
                     // Put all input into a list
                     for (int j = 0; j < totalNum; j++) {
+                        // Check for Empty Input
+                        if(TextUtils.isEmpty(names.get(j).getText().toString()) || TextUtils.isEmpty(numbers.get(j).getText().toString())) {
+                            Toast.makeText(getApplicationContext(), "All info must be filled", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        if(numbers.get(j).getText().toString().length() != 10) {
+                            Toast.makeText(getApplicationContext(), "All phone numbers must be 10 digits", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
                         namesList.add(names.get(j).getText().toString());
                         numsList.add(Integer.getInteger(numbers.get(j).getText().toString()));
                     }
