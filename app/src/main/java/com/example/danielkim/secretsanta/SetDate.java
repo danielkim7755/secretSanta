@@ -1,11 +1,11 @@
 package com.example.danielkim.secretsanta;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -24,6 +24,7 @@ import java.util.Random;
  */
 
 public class SetDate extends AppCompatActivity {
+    public final int MY_PERMISSIONS_REQUEST_SEND_SMS = 0;
     protected ArrayList<String> namesList;
     protected ArrayList<Integer> numsList;
     protected String groupName;
@@ -66,9 +67,22 @@ public class SetDate extends AppCompatActivity {
 
 
         // TODO Send Out Text Messages
+        String message = "Welcome to " + groupName + " Secret Santa \n" +
+                         "Gifts are due at " + dueDate + " !!!\n\n\n" +
+                         "You are the Secret Santa of ";
 
+        for(int i = 0; i < maxSize; i++) {
+            String pNum = Integer.toString(numsList.get(i));
+            String msg = message + namesList.get(results[i]);
 
-
+            try {
+                SmsManager sms = SmsManager.getDefault();
+                sms.sendTextMessage(pNum, null, msg + "!", null, null);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
         srtBtn.setText("Sent!");
 
@@ -84,6 +98,7 @@ public class SetDate extends AppCompatActivity {
             }
         ,5000);
     }
+
 
     protected String getDate(DatePicker dtPck)  {
         int day = dtPck.getDayOfMonth();
